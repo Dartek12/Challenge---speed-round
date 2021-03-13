@@ -1,3 +1,18 @@
+/*
+ * Copyright 2021 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.example.androiddevchallenge
 
 import androidx.compose.foundation.horizontalScroll
@@ -15,7 +30,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.BottomAppBar
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.FabPosition
@@ -46,25 +60,31 @@ fun Home() {
     Scaffold(
         bottomBar = {
             BottomNavigation(backgroundColor = MaterialTheme.colors.background) {
-                BottomNavigationItem(selected = true, onClick = { /*TODO*/ },
+                BottomNavigationItem(
+                    selected = true, onClick = { /*TODO*/ },
                     icon = {
                         Icon(
                             imageVector = Icons.Default.Spa, contentDescription = "Home",
                             modifier = Modifier.size(18.dp)
                         )
-                    }, label = {
+                    },
+                    label = {
                         Text("HOME", style = MaterialTheme.typography.caption)
-                    })
-                BottomNavigationItem(selected = false, onClick = { /*TODO*/ },
+                    }
+                )
+                BottomNavigationItem(
+                    selected = false, onClick = { /*TODO*/ },
                     icon = {
                         Icon(
                             imageVector = Icons.Default.AccountCircle,
                             contentDescription = "Account",
                             modifier = Modifier.size(18.dp)
                         )
-                    }, label = {
+                    },
+                    label = {
                         Text("PROFILE", style = MaterialTheme.typography.caption)
-                    })
+                    }
+                )
             }
         },
         isFloatingActionButtonDocked = true,
@@ -166,7 +186,8 @@ fun CardRow(item: Item) {
 @Composable
 fun HorizontalGrid(rows: Int = 2, children: @Composable () -> Unit) {
     Layout(
-        content = children, modifier = Modifier
+        content = children,
+        modifier = Modifier
             .padding(vertical = 8.dp)
             .horizontalScroll(
                 rememberScrollState()
